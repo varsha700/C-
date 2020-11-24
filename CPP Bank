@@ -1,0 +1,58 @@
+
+#include<iostream>
+using namespace std;
+class Bank
+{
+    int acno;
+    string cname;
+    int dm,wm,cbal;
+    static int bbal;
+    public:
+        void setD()
+        {
+            cout<<"Enter AccNo,CustName and Initial balance :: ";
+            cin>>acno>>cname>>cbal;
+            bbal = bbal+cbal;
+        }
+        void getD()
+        {
+            cout<<"\nAccountNo="<<acno<<"\nName="<<cname<<"\nBalance="<<cbal;
+        }
+        void Deposit()
+        {
+            cout<<"Enter amount to deposit::";
+            cin>>dm;
+            cbal=cbal+dm;
+            bbal = bbal + dm;
+        }
+         void Withdraw()
+        {
+            cout<<"Enter amount to withdraw::";
+            cin>>wm;
+            cbal=cbal-wm;
+            bbal = bbal - wm;
+        }
+     void static showTotal()
+      {
+      cout<<"\nTotal Balance of Bank="<<bbal<<endl;
+      }
+};
+int Bank::bbal=50000;
+int main()
+{
+   Bank c1,c2,c3;
+   c1.setD();
+   c1.Deposit();
+   c1.Withdraw();
+   c2.setD();
+   c2.Deposit();
+   c2.Withdraw();
+   c3.setD();
+   c3.Deposit();
+   c3.Withdraw();
+   cout<<"\n-------------Details of Customers ----------------\n";
+   c1.getD();
+   c2.getD();
+   c3.getD();
+   Bank::showTotal(); 
+}
